@@ -28,3 +28,6 @@ jobs:
 
     - name: Run RAG Application (Basic Check)
       run: python app.py
+
+    - name: Run Unit Tests
+      run: pytest tests/
