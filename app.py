@@ -92,4 +92,4 @@ if __name__ == "__main__":
     answer = run_rag(query)
     print(f"Answer: {answer}")
 
-# This is a dummy comment to trigger a new CI/CD run.
+# This is a dummy comment to trigger a new CI/CD run. (v2)
