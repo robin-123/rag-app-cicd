@@ -6,3 +6,4 @@ transformers
 sentence-transformers
 pytest
 langchain_community
+flake8
