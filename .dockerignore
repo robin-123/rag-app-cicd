@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.git/
+.gitignore
+.vscode/
+.DS_Store
+*.log
+# Exclude data directory if it's only for local testing and not part of the final image
+data/
