@@ -1,7 +1,4 @@
 
-    The quick brown fox jumps over the lazy dog.
-    This is a sample document for testing the RAG application.
-    It contains some information about various topics.
-    The capital of France is Paris.
-    The highest mountain in the world is Mount Everest.
-    
+This is a test document.
+It has multiple lines.
+For unit testing purposes.
