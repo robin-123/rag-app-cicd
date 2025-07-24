@@ -7,9 +7,11 @@ from langchain_huggingface import HuggingFacePipeline
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import os
 
+
 # Ensure the data directory exists
 DATA_DIR = "data"
 os.makedirs(DATA_DIR, exist_ok=True)
+
 
 # 1. Load Document
 def load_document(file_path):
@@ -17,11 +19,13 @@ def load_document(file_path):
     documents = loader.load()
     return documents
 
+
 # 2. Split Text
 def split_text(documents):
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     docs = text_splitter.split_documents(documents)
     return docs
+
 
 # 3. Create Embeddings and Vector Store
 def create_vector_store(docs):
@@ -31,12 +35,13 @@ def create_vector_store(docs):
     vectorstore = FAISS.from_documents(docs, embeddings)
     return vectorstore
 
+
 # 4. Initialize LLM (using a local model for simplicity)
 def initialize_llm():
     model_id = "distilgpt2"  # A small, fast model for demonstration
     tokenizer = AutoTokenizer.from_pretrained(model_id)
     model = AutoModelForCausalLM.from_pretrained(model_id)
-    
+
     pipe = pipeline(
         "text-generation",
         model=model,
@@ -48,6 +53,7 @@ def initialize_llm():
     )
     llm = HuggingFacePipeline(pipeline=pipe)
     return llm
+
 
 # Main RAG process
 def run_rag(query, file_path="data/sample.txt"):
@@ -68,6 +74,7 @@ def run_rag(query, file_path="data/sample.txt"):
     print(f"Running query: {query}")
     result = qa_chain.invoke(query)
     return result
+
 
 if __name__ == "__main__":
     # Create a dummy data file for testing
@@ -91,5 +98,6 @@ if __name__ == "__main__":
     query = "What is the highest mountain in the UKs?"
     answer = run_rag(query)
     print(f"Answer: {answer}")
+
 
 # This is a dummy comment to trigger a new CI/CD run. (v2)
