@@ -95,7 +95,7 @@ if __name__ == "__main__":
     answer = run_rag(query)
     print(f"Answer: {answer}")
 
-    query = "What is the highest mountain in India?"
+    query = "What is the highest mountain in china?"
     answer = run_rag(query)
     print(f"Answer: {answer}")
 
