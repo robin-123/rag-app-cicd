@@ -1,9 +1,9 @@
-from langchain.document_loaders import TextLoader
+from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
-from langchain.llms import HuggingFacePipeline
+from langchain_huggingface import HuggingFacePipeline
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import os
 
@@ -66,7 +66,7 @@ def run_rag(query, file_path="data/sample.txt"):
         retriever=vectorstore.as_retriever()
     )
     print(f"Running query: {query}")
-    result = qa_chain.run(query)
+    result = qa_chain.invoke(query)
     return result
 
 if __name__ == "__main__":
